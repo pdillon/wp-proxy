@@ -1,0 +1,38 @@
+{
+  "name": "wp-proxy",
+  "version": "0.5.0",
+  "description": "\"Simple proxy for fronting a WP site\"",
+  "main": "index.js",
+  "author": "Patrick Dillon",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./lib/proxy-server.js",
+    "build": "npm run lib",
+    "start:dev": "NODE_ENV=development node ./lib/proxy-server.js",
+    "watch": "yarn lib:watch && yarn service:watch",
+    "lib": "babel ./src -d ./lib",
+    "lib:watch": "babel --watch ./src -d ./lib",
+    "service:watch": "nodemon --watch lib ./lib/service"
+  },
+  "bin": {
+    "wp-proxy": "./lib/proxy-server.js"
+  },
+  "dependencies": {
+    "commander": "^2.9.0",
+    "koa": "next",
+    "koa-bodyparser": "next",
+    "koa-static": "next",
+    "request": "^2.78.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.18.2",
+    "babel-preset-node5": "^11.1.0",
+    "nodemon": "^1.11.0"
+  },
+  "babel": {
+    "presets": [
+      "node5"
+    ]
+  }
+}
