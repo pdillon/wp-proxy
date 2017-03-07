@@ -2,21 +2,20 @@
   "name": "wp-proxy",
   "version": "0.5.0",
   "description": "\"Simple proxy for fronting a WP site\"",
-  "main": "index.js",
+  "main": "lib/proxy.js",
   "author": "Patrick Dillon",
   "license": "MIT",
   "scripts": {
     "start": "node ./lib/proxy-server.js",
-    "build": "npm run lib",
+    "build": "yarnpkg lib",
     "start:dev": "NODE_ENV=development node ./lib/proxy-server.js",
-    "watch": "yarn lib:watch && yarn service:watch",
+    "watch": "yarnpkg lib:watch && yarnpkg service:watch",
     "lib": "babel ./src -d ./lib",
     "lib:watch": "babel --watch ./src -d ./lib",
-    "service:watch": "nodemon --watch lib ./lib/service"
+    "service:watch": "nodemon --watch lib ./lib/service",
+    "prepublishOnly": "yarnpkg lib"
   },
-  "bin": {
-    "wp-proxy": "./lib/proxy-server.js"
-  },
+  "bin": "./lib/proxy-server.js",
   "dependencies": {
     "commander": "^2.9.0",
     "koa": "next",
