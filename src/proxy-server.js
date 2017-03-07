@@ -8,7 +8,6 @@ import proxy from './proxy';
 const app = new Koa();
 import packageJson from '../package.json';
 
-
 commander
   .version(packageJson.version)
   .option('--port [value]', 'Proxy server port.')
