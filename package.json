@@ -1,6 +1,6 @@
 {
   "name": "wp-proxy",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "\"Simple proxy for fronting a WP site\"",
   "main": "lib/proxy.js",
   "author": "Patrick Dillon",
